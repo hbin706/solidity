@@ -1,0 +1,58 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getAddress",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/level02/6.多签钱包/test.sol": "test"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/level02/6.多签钱包/test.sol": {
+			"keccak256": "0x2d7a6c081208f3fbe35f33a55f3579a7cd5aae289a80a942debc91dacd7b254c",
+			"urls": [
+				"bzz-raw://6fa7908faa6995fa4bea757eb8a12cf2d8ed6811d2dfe67617cf192939a4f929",
+				"dweb:/ipfs/QmZ5az2v4AiXYY6g9cgXNyBpHjBaESVLBkgSA2cjB99riB"
+			]
+		}
+	},
+	"version": 1
+}
