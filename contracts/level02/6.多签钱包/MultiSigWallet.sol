@@ -132,4 +132,3 @@ contract MultiSigWallet {
         emit Revoke(msg.sender, _txId);
     }
 }
-
