@@ -1,0 +1,35 @@
+{
+  "name": "solidity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+mkdir $HOME/go1.21.0 && tar -xf go1.21.0.darwin-amd64.tar.gz --strip 1 -C $HOME/go1.21.0
+
+
+export GOROOT=$HOME/go1.21.0
+export GOPATH=$HOME/.go_path
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
+
+
+NewStoreCaller创建一个新的只读Store实例 绑定到一个特定的已部署契约。
+NewStoreCaller creates a new read-only instance of Store, bound to a specific deployed contract.
+
+NewStoreTransactor创建一个新的Store只写实例 绑定到一个特定的已部署契约。
+NewStoreTransactor creates a new write-only instance of Store, bound to a specific deployed contract.
+
+NewStoreFilterer创建一个新的Store日志过滤器实例 绑定到一个特定的部署契约。
+NewStoreFilterer creates a new log filterer instance of Store, bound to a specific deployed contract.
+
+bindStore将通用包装器绑定到已部署的契约。
+bindStore binds a generic wrapper to an already deployed contract.

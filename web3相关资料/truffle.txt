@@ -1,0 +1,41 @@
+
+--下载 truffle
+npm install -g truffle
+
+--构建truffle目录
+truffle init
+
+--安装openzeppelin
+npm install @openzeppelin/contracts
+
+-- 要部署的合约文件
+vim contracts/Token.sol  
+
+-- 编译
+truffle compile
+
+-- 创建 部署合约的文件
+vim migrations/2_deploy_contracts.js
+
+-- 编辑 2_deploy_contracts  其中 MyToken 为 合约名称
+const MyToken = artifacts.require("MyToken");
+module.exports = function(deployer) {
+    deployer.deploy(MyToken);
+};
+
+-- 将合约部署的truffle 的测试环境
+truffle develop 启动truffle
+migrate 部署合约
+
+
+--合约调用
+var myCoin
+MyToken.deployed().then(function(instance){myCoin=instance})
+myCoin.totalSupply() 查看合约
+
+2.部署到Ganache
+修改 truffle-config.js
+networks 更改为 ganache的 ip
+truffle console  进入到truffle的开发环境
+web3.eth.getAccounts() 输出 ganache的账号
+migrate 部署合约

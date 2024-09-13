@@ -1,0 +1,16 @@
+
+solidity 0.8.0
+
+1.safe math 安全数学
+    uint 0 - 1 = -1  ---> 
+        在原来会抛异常 revert uint类型不能为这种负数
+        新特性 unchecked 则 返回 uint256的最大值 
+2.custom errors 自定义错误
+        特性之前：revert require 进行报错  报错信息的话 写一个字符串 ，产生的gas是和字符串的长度有关系
+        特性之后：自定义error  1.消耗更少的gas  2.定义的错误信息更详细，方便排查问题  
+3.function outside contract 函数在合约之外
+4.导入合约 添加别名
+5.create2 方法 由原来的内联汇编  变成了这种新建合约方法的一种方式了
+        之前：用这中内联汇编的方式 + 盐  进行合约部署  合约当前地址和nonce值去运算的
+        之后：create2 是用盐来进行运算的
+        优点：在合约没有部署之前 就可以它即将要部署出来的地址是多少  在uniswap的pair 配对合约就使用了这种方式
