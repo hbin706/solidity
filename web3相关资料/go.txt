@@ -1,0 +1,63 @@
+
+
+环境准备
+Golang官网下载页面：https://go.dev/dl/
+下载好golang的压缩包之后解压:
+mkdir $HOME/go1.22.6 && tar -xf go1.22.6.darwin-arm64.tar.gz --strip 1 -C $HOME/go1.22.6
+
+
+设置Golang所需的环境变量:
+export GOROOT=$HOME/go1.21.0
+export GOPATH=$HOME/.go_path
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
+export PATH=$PATH:$GOPATH/bin
+/Users/hehuabin/.go_path/bin/
+
+检查go语言环境:
+go version
+
+设置GOPROXY:
+
+go env -w GOPROXY="https://goproxy.cn,direct"
+
+
+初始化Go项目
+mkdir go-eth-demo && cd go-eth-demo && go mod init github.com/local/go-eth-demo
+
+
+添加ethclient包依赖
+go get github.com/ethereum/go-ethereum
+go get github.com/ethereum/go-ethereum/rpc
+------------------------------------------------------------------------
+//go-ethereum
+初始化go项目之后，需要从go-ethereum 提供以太坊环境的私钥。
+github clone go-ethereum 源码，创建一个新的帐户（./build/bin/geth account new）
+然后根据这个帐户地址生成私钥。
+./build/bin/ethkey inspect --private --passwordfile pw.txt --json /Users/hehuabin/Library/Ethereum/keystore/UTC--2024-08-21T08-08-32.528575000Z--dafcca7146fbaaf07d668299ed3be5b9e5edac5d
+
+生成密钥
+
+KeyStore文件转私钥
+以太坊提供了ethkey工具把keystore文件中包含的私钥信息转换成可以导入到钱包中的私钥。
+从源码编译ethkey工具:
+go run build/ci.go install ./cmd/ethkey
+
+----------------------------------------------------------------------
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+在node项目下，安装hardhat
+npm install --save-dev hardhat
+使用hardhat初始化项目
+npx hardhat init
+进入hardhat项目目录后，执行命令
+npx hardhat node
+节点启动后，将会在控制台打印测试预分配了测试ETH的地址以及私钥。
+这些私钥是固定的，并且是公开的，所以不要使用这些私钥在主网上做任何转账操作。
+---------------------------------------------------------------------
+go-eth-demo  solcjs --abi xx.sol && solcjs --bin xx.sol   生成bin和abi文件
+再通过   abigen --bin contract_store_sol_Store.bin  --abi contract_store_sol_Store.abi --pkg=store --out=store/store.go   将合约编译成原生的go文件
+
+
+sudo make && make devtools
+
+cd /Users/hehuabin/.go_path/pkg/mod/github.com/ethereum/go-ethereum\@v1.14.8/

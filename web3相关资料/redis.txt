@@ -1,0 +1,10 @@
+redis-server
+
+redis-cli shutdown
+
+
+config set requirepass 123456
+
+
+openssl ecparam -genkey -name secp256k1 -out ecprivatekey.pem
+openssl ec -in ecprivatekey.pem -text | grep "priv:"
